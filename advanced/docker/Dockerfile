@@ -1,0 +1,32 @@
+# This is the base image for the example_docker advanced example cloud execution
+FROM ubuntu:22.04
+
+# Configure apt
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt update -y && apt install -y software-properties-common
+RUN add-apt-repository -y ppa:deadsnakes/ppa
+
+# Install python3.9
+RUN apt update -y && apt install -y python3.9
+RUN rm /usr/bin/python3
+RUN ln -s /usr/bin/python3.9 /usr/bin/python3
+RUN ln -s /usr/bin/python3.9 /usr/bin/python
+
+# Install pip3
+RUN apt update -y && apt install -y python3-pip
+RUN apt update -y && apt install --reinstall -y python3.9-distutils
+
+# Set the launch command
+ENV PATH="/sematic/bin/:${PATH}"
+COPY advanced/scripts/launch.sh /advanced/scripts/launch.sh
+ENTRYPOINT ["/advanced/scripts/launch.sh"]
+
+# Install all pipeline requirements, including Sematic itself
+COPY requirements.txt requirements.txt
+RUN pip3 install --no-cache -r requirements.txt
+
+# Copy the data files
+COPY advanced/data/message.txt /advanced/data/message.txt
+
+# Copy the pipeline source files
+COPY advanced/*.py /advanced/
