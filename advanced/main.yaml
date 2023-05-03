@@ -1,9 +1,5 @@
 version: 0
 image_script: "advanced/scripts/build_image.sh"
-build:
-  requirements: "requirements.txt"
-  data: ["advanced/data/message.txt"]
-  src: ["advanced/**.py"]
 push:
   registry: <image push registry>
   repository: <image push repository>
