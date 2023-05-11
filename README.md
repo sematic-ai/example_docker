@@ -48,4 +48,4 @@ $ sematic run advanced/main.py --build -- /advanced/data/message.txt
 ```
 
 This example also shows how to package data files and pass arguments to the pipeline
-execution.
+execution, and how to configure a custom Docker client connection to the Docker server.
