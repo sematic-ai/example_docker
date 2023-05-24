@@ -2,10 +2,10 @@ version: 1
 base_uri: "sematicai/sematic-worker-base:latest@sha256:bea3926876a3024c33fe08e0a6b2c0377a7eb600d7b3061a3f3f39d711152e3c"
 build:
   platform: "linux/amd64"
-  requirements: "requirements.txt"
-  data: ["intermediate/data/message.txt"]
-  src: ["intermediate/**.py"]
+  requirements: "//requirements.txt"
+  data: ["data/message.txt"]
+  src: ["**.py"]
 push:
-  registry: <image push registry>
-  repository: <image push repository>
+  registry: "558717131297.dkr.ecr.us-west-2.amazonaws.com"
+  repository: "sematic-dev"
   tag_suffix: "example_docker_intermediate"
