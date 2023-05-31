@@ -4,18 +4,18 @@ WORKDIR /
 
 # Configure apt
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt update -y && apt install -y software-properties-common
+RUN apt-get update -y && apt-get install -y software-properties-common
 RUN add-apt-repository -y ppa:deadsnakes/ppa
 
 # Install python3.9
-RUN apt update -y && apt install -y python3.9
+RUN apt-get update -y && apt-get install -y python3.9
 RUN rm /usr/bin/python3
 RUN ln -s /usr/bin/python3.9 /usr/bin/python3
 RUN ln -s /usr/bin/python3.9 /usr/bin/python
 
 # Install pip3
-RUN apt update -y && apt install -y python3-pip
-RUN apt update -y && apt install --reinstall -y python3.9-distutils
+RUN apt-get update -y && apt-get install -y python3-pip
+RUN apt-get update -y && apt-get install --reinstall -y python3.9-distutils
 
 # Install all pipeline requirements, including Sematic itself
 COPY requirements.txt requirements.txt
