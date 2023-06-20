@@ -4,6 +4,10 @@ This repo contains examples of how to build and submit a Sematic pipelines using
 native Python+Docker build system, as opposed to [using
 Bazel](https://github.com/sematic-ai/example_bazel).
 
+In order to make this work with your own container registry, replace the occurrences of
+`<image push registry>` and `<image push repository>` in the configuration `yaml` with your
+own values.
+
 See the [Sematic
 documentation](https://docs.sematic.dev/cloud-execution/container-images#docker)
 for more details.

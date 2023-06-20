@@ -4,7 +4,7 @@ build:
   platform: "linux/amd64"
   requirements: "//requirements.txt"
   data: ["data/message.txt"]
-  src: ["**.py"]
+  src: ["**/*.py"]
 push:
   registry: <image push registry>
   repository: <image push repository>
