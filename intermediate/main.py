@@ -1,9 +1,13 @@
 import sys
 
-from sematic import CloudResolver
+from sematic import CloudRunner
 
 from intermediate.pipeline import pipeline
 
 
 if __name__ == "__main__":
-    print(pipeline(sys.argv[1]).resolve(CloudResolver()))
+    future = pipeline(sys.argv[1]).set(
+        name="Intermediate Docker Example Pipeline",
+        tags=["example", "docker", "intermediate"],
+    )
+    print(CloudRunner().run(future))

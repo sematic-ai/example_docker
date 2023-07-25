@@ -1,4 +1,4 @@
-from sematic import func, LocalResolver
+from sematic import func, LocalRunner
 
 
 @func
@@ -7,4 +7,7 @@ def pipeline() -> str:
 
 
 if __name__ == "__main__":
-    print(pipeline().resolve(LocalResolver()))
+    future = pipeline().set(
+        name="Basic Example Pipeline", tags=["example", "local", "advanced"]
+    )
+    print(LocalRunner().run(future))
