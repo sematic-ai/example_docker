@@ -8,6 +8,6 @@ def pipeline() -> str:
 
 if __name__ == "__main__":
     future = pipeline().set(
-        name="Basic Example Pipeline", tags=["examples", "local", "advanced"]
+        name="Basic Example Pipeline", tags=["example", "local", "advanced"]
     )
     print(LocalRunner().run(future))
